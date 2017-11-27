@@ -13,7 +13,7 @@ import javax.persistence.Table;
  * @author martin_ruediger
  */
 @Entity
-public class Telefone implements Serializable{
+public class Telefone extends model.Entity implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -38,10 +38,12 @@ public class Telefone implements Serializable{
     
     
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }

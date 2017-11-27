@@ -16,7 +16,8 @@ import javax.persistence.OneToMany;
  * @author martin_ruediger
  */
 @Entity
-public class Cliente implements Serializable{
+public class Cliente extends model.Entity implements Serializable{
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,10 +35,12 @@ public class Cliente implements Serializable{
     }
 
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }
