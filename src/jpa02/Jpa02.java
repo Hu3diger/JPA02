@@ -2,6 +2,7 @@ package jpa02;
 
 import dao.ClienteDAO;
 import model.Cliente;
+import model.Telefone;
 
 /**
  *
@@ -9,8 +10,20 @@ import model.Cliente;
  */
 public class Jpa02 {
     public static void main(String[] args) {
-        Cliente cliente = new Cliente(1L, "nome");
-        ClienteDAO.save(cliente);
+        Cliente clienteNovo = new Cliente("nome");
+        ClienteDAO.save(clienteNovo);
+//        for (Cliente cliente : ClienteDAO.findAll()) {
+//            System.out.println(cliente.getNome());
+//            for (Telefone telefone : cliente.getListaTelefone()) {
+//                System.out.println(telefone.getNumero());
+//            }
+//            System.out.println("");
+//        }
+        
+        Cliente clienteTelefone = ClienteDAO.findById(1);
+        clienteTelefone.getListaTelefone().add(new Telefone("40028922", clienteTelefone));
+        ClienteDAO.save(clienteTelefone);
+        System.exit(0);
     }
     
 }
